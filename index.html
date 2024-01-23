@@ -1,0 +1,57 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <title>Guestbook</title>
+</head>
+<body>
+    <div id="guestbook">
+        <form id="entryForm">
+            <label for="name">Name:</label>
+            <input type="text" id="name" required>
+            <label for="email">Email:</label>
+            <input type="email" id="email" required>
+            <label for="message">Message:</label>
+            <textarea id="message" required></textarea>
+            <button type="button" onclick="submitEntry()">Submit</button>
+        </form>
+
+        <!-- Sorting options -->
+        <label for="sortColumn">Sort By:</label>
+        <select id="sortColumn">
+            <option value="name">Name</option>
+            <option value="email">Email</option>
+            <option value="created_at">Date</option>
+        </select>
+
+        <label for="sortOrder">Sort Order:</label>
+        <select id="sortOrder">
+            <option value="ASC">Ascending</option>
+            <option value="DESC">Descending</option>
+        </select>
+
+        <button type="button" onclick="fetchEntries()">Apply Sorting</button>
+
+        <!-- Search container -->
+        <div>
+            <label for="searchTerm">Search:</label>
+            <input type="text" id="searchTerm">
+            <button type="button" onclick="searchEntries()">Search</button>
+        </div>
+
+        <!-- Custom alert container -->
+        <div id="customAlert" class="custom-alert">
+            <span class="close-btn" onclick="closeCustomAlert()">&times;</span>
+            <p id="alertMessage"></p>
+        </div>
+
+        <!-- Display entries -->
+        <div id="entriesList"></div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
